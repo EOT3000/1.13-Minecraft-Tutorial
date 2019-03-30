@@ -18,6 +18,8 @@ public class Tutorial {
 	
 	public static final String MOD_ID = "tutorial";
 	
+	public static final ItemGroup TUTORIAL_TAB = new TutorialTab();
+	
 	public Tutorial() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);

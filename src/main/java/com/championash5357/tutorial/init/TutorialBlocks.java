@@ -35,7 +35,7 @@ public class TutorialBlocks {
 		@SubscribeEvent
 		public static void registerItemBlocks(final RegistryEvent.Register<Item> event) {
 			final ItemBlock[] items = {
-					new ItemBlock(RUBY_ORE, new Item.Properties().maxStackSize(32).rarity(EnumRarity.UNCOMMON).group(ItemGroup.BUILDING_BLOCKS))
+					new ItemBlock(RUBY_ORE, new Item.Properties().maxStackSize(32).rarity(EnumRarity.UNCOMMON).group(Tutorial.TUTORIAL_TAB))
 			};
 			
 			for(final ItemBlock item : items) {

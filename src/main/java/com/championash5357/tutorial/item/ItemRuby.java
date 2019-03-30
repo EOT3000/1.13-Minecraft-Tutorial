@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class ItemRuby extends Item {
 
 	public ItemRuby() {
-		super(new Properties().maxStackSize(32).group(ItemGroup.MATERIALS).rarity(EnumRarity.UNCOMMON));
+		super(new Properties().maxStackSize(32).group(Tutorial.TUTORIAL_TAB).rarity(EnumRarity.UNCOMMON));
 		this.setRegistryName("ruby");
 	}
 	
