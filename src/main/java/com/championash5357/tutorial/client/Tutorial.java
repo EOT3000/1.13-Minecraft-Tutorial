@@ -1,6 +1,7 @@
 package com.championash5357.tutorial.client;
 
 import com.championash5357.tutorial.init.TutorialTab;
+import com.championash5357.tutorial.init.TutorialTileEntities;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,7 +35,7 @@ public class Tutorial {
 	}
 	
 	public void clientSetup(final FMLClientSetupEvent event) {
-		
+		TutorialTileEntities.renders();
 	}
 	
 	public void enqueueIMC(final InterModEnqueueEvent event) {
