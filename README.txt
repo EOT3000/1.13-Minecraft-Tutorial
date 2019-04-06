@@ -1,0 +1,1 @@
+Hey guys! Welcome to the GitHub repo for How To Make A Minecraft 1.13.2 Mod! Every tutorial done will be uploaded here whenever the video is completed so if you want early access to next week's episode, make sure to check here often!
