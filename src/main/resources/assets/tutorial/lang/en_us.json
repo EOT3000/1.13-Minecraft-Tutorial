@@ -5,5 +5,7 @@
 	"block.tutorial.ruby_ore": "Ruby Ore",
 	"block.tutorial.jar": "Jar",
 	"item.tutorial.ruby": "Ruby",
+	"item.tutorial.perspectives_record": "Perspectives Record",
+	"item.tutorial.perspectives_record.desc": "Kevin MacLeod - Perspectives",
 	"itemGroup.tutorial": "Tutorial"
 }
