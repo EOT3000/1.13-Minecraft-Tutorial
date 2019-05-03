@@ -1,6 +1,7 @@
 package com.championash5357.tutorial.init;
 
 import com.championash5357.tutorial.block.BlockJar;
+
 import com.championash5357.tutorial.block.BlockRubyOre;
 import com.championash5357.tutorial.client.Tutorial;
 import com.google.common.base.Preconditions;
@@ -16,11 +17,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ObjectHolder;
 
+import static com.championash5357.tutorial.util.InjectionUtil.Null;
+
 @ObjectHolder(Tutorial.MOD_ID)
 public class TutorialBlocks {
 	
-	public static final Block RUBY_ORE = new BlockRubyOre();
-	public static final Block JAR = new BlockJar();
+	public static final BlockRubyOre RUBY_ORE = Null();
+	public static final BlockJar JAR = Null();
 	
 	@Mod.EventBusSubscriber(modid = Tutorial.MOD_ID, bus = Bus.MOD)
 	public static class Register {
@@ -28,8 +31,8 @@ public class TutorialBlocks {
 		@SubscribeEvent
 		public static void registerBlock(final RegistryEvent.Register<Block> event) {
 			final Block[] blocks = {
-					RUBY_ORE,
-					JAR
+					new BlockRubyOre(),
+					new BlockJar()
 			};
 			
 			event.getRegistry().registerAll(blocks);

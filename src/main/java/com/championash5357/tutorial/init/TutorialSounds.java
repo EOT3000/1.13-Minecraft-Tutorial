@@ -9,7 +9,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ObjectHolder;
-
 @ObjectHolder(Tutorial.MOD_ID)
 public class TutorialSounds {
 	
@@ -21,7 +20,7 @@ public class TutorialSounds {
 		@SubscribeEvent
 		public static void register(final RegistryEvent.Register<SoundEvent> event) {
 			final SoundEvent[] sounds = {
-				PERSPECTIVES	
+					PERSPECTIVES
 			};
 			
 			event.getRegistry().registerAll(sounds);
