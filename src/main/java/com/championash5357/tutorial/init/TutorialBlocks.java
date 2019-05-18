@@ -3,6 +3,7 @@ package com.championash5357.tutorial.init;
 import com.championash5357.tutorial.block.BlockJar;
 
 import com.championash5357.tutorial.block.BlockRubyOre;
+import com.championash5357.tutorial.block.BlockStorage;
 import com.google.common.base.Preconditions;
 
 import net.minecraft.block.Block;
@@ -25,6 +26,7 @@ public class TutorialBlocks {
 	
 	public static final BlockRubyOre RUBY_ORE = Null();
 	public static final BlockJar JAR = Null();
+	public static final BlockStorage STORAGE = Null();
 	
 	@Mod.EventBusSubscriber(modid = Tutorial.MOD_ID, bus = Bus.MOD)
 	public static class Register {
@@ -33,7 +35,8 @@ public class TutorialBlocks {
 		public static void registerBlock(final RegistryEvent.Register<Block> event) {
 			final Block[] blocks = {
 					new BlockRubyOre(),
-					new BlockJar()
+					new BlockJar(),
+					new BlockStorage()
 			};
 			
 			event.getRegistry().registerAll(blocks);
@@ -43,7 +46,8 @@ public class TutorialBlocks {
 		public static void registerItemBlocks(final RegistryEvent.Register<Item> event) {
 			final ItemBlock[] items = {
 					new ItemBlock(RUBY_ORE, new Item.Properties().maxStackSize(32).rarity(EnumRarity.UNCOMMON).group(Tutorial.TUTORIAL_TAB)),
-					new ItemBlock(JAR, new Item.Properties().group(Tutorial.TUTORIAL_TAB))
+					new ItemBlock(JAR, new Item.Properties().group(Tutorial.TUTORIAL_TAB)),
+					new ItemBlock(STORAGE, new Item.Properties().group(Tutorial.TUTORIAL_TAB))
 			};
 			
 			for(final ItemBlock item : items) {
