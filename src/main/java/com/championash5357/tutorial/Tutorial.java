@@ -1,11 +1,20 @@
 package com.championash5357.tutorial;
 
+import com.championash5357.tutorial.client.gui.GuiStorage;
 import com.championash5357.tutorial.init.TutorialTab;
 import com.championash5357.tutorial.init.TutorialTileEntities;
+import com.championash5357.tutorial.tileentity.TileEntityStorage;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -22,6 +31,19 @@ public class Tutorial {
 	public static final ItemGroup TUTORIAL_TAB = new TutorialTab();
 	
 	public Tutorial() {
+		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.GUIFACTORY, () -> {
+			return (openContainer) -> {
+				ResourceLocation location = openContainer.getId();
+				if(location.toString().equals(MOD_ID + ":storage_gui")) {
+					EntityPlayerSP player = Minecraft.getInstance().player;
+					BlockPos pos = openContainer.getAdditionalData().readBlockPos();
+					TileEntity tile = player.world.getTileEntity(pos);
+					if(tile instanceof TileEntityStorage) return new GuiStorage(player.inventory, (TileEntityStorage) tile);
+				}
+				return null;
+			};
+		});
+		
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);

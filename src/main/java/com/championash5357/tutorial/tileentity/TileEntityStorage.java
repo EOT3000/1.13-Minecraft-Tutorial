@@ -2,6 +2,8 @@ package com.championash5357.tutorial.tileentity;
 
 import com.championash5357.tutorial.init.TutorialTileEntities;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -18,6 +20,21 @@ public class TileEntityStorage extends TileEntity {
 	
 	public TileEntityStorage() {
 		super(TutorialTileEntities.STORAGE);
+	}
+	
+	public ItemStackHandler getInventory() {
+		return this.inventory;
+	}
+	
+	public boolean interact(EntityPlayer player) {
+		return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq(player) <= 64.0D;
+	}
+	
+	public void save() {
+		IBlockState state = this.world.getBlockState(this.pos);
+		this.world.markBlockRangeForRenderUpdate(this.pos, this.pos);
+		this.world.notifyBlockUpdate(pos, state, state, 3);
+		this.markDirty();
 	}
 	
 	@Override
